@@ -12,152 +12,37 @@ import {
 } from "@mui/material";
 import { Card } from "antd";
 import ImgItem from "public/img/ItemItem.png";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import axios from "axios";
 function MenPage() {
-  const cloneData = [
+  const [dataMenList, setDataMenList] = useState<any>([
     {
-      img: ImgItem,
+      images: [ImgItem],
       name: "Thit chó",
       price: 300000,
-      size: ["S", "M", "L", "XL"],
+      sizes: ["S", "M", "L", "XL"],
       id: 1,
     },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 2,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 3,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 4,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 1,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 2,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 3,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 4,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 1,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 2,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 3,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 4,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 1,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 2,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 3,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 4,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 1,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 2,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 3,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 4,
-    },
-  ];
+  ]);
+  const handleGetMenList = async () => {
+    axios
+      .get("http://localhost:4000/v4/product/list/M")
+      .then(function (res) {
+        // handle success
+
+        console.log(res.data);
+        setDataMenList(res.data.products);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    handleGetMenList();
+  }, []);
   const handleChangePaginate = (
     event: React.ChangeEvent<unknown>,
     pageSelected: number
@@ -177,13 +62,14 @@ function MenPage() {
       </Box>
       <Box>
         <Grid container columns={8}>
-          {cloneData.map((item, index) => (
+          {dataMenList.map((item: any) => (
             <Grid key={item.id} item xs={2} px="80px" py="40px">
               <ItemDefault
-                img={item.img}
+                img={item.images[0]}
                 name={item.name}
                 price={item.price}
-                size={item.size}
+                size={item.sizes}
+                id={item._id}
               />
             </Grid>
           ))}

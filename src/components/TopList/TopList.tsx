@@ -1,39 +1,35 @@
 import { Box, Button, Grid, Typography } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ImgItem from "public/img/ItemItem.png";
 import ItemDefault from "../ItemDefault/ItemDefault";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 function TopList() {
-  const cloneData = [
+  const [dataTopList, setDataTopList] = useState<any>([
     {
-      img: ImgItem,
+      images: [ImgItem],
       name: "Thit chó",
       price: 300000,
-      size: ["S", "M", "L", "XL"],
+      sizes: ["S", "M", "L", "XL"],
       id: 1,
     },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 2,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 3,
-    },
-    {
-      img: ImgItem,
-      name: "Thit chó",
-      price: 300000,
-      size: ["S", "M", "L", "XL"],
-      id: 4,
-    },
-  ];
+  ]);
+
+  const handleGetTrensList = async () => {
+    axios
+      .get("http://localhost:4000/v4/product/trend/list")
+      .then(function (res) {
+        // handle success
+        setDataTopList(res.data.data.slice(0, 4));
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+  useEffect(() => {
+    handleGetTrensList();
+  }, []);
   const router = useRouter();
   const handleViewTopProduct = () => {
     router.push("/TopProduct");
@@ -47,13 +43,14 @@ function TopList() {
         Top sản phẩm nổi bật
       </Typography>
       <Grid container columns={8}>
-        {cloneData.map((item, index) => (
+        {dataTopList.map((item: any) => (
           <Grid key={item.id} item xs={2}>
             <ItemDefault
-              img={item.img}
+              img={item.images[0]}
               name={item.name}
               price={item.price}
-              size={item.size}
+              size={item.sizes}
+              id={item._id}
             />
           </Grid>
         ))}

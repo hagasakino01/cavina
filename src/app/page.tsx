@@ -14,6 +14,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import TopList from "@/components/TopList/TopList";
 import NewList from "@/components/NewList/NewList";
 import NavBar from "@/components/NavBar/NavBar";
+import axios from "axios";
+import { useEffect } from "react";
+
 export default function Home() {
   const router = useRouter();
   const handleLogin = () => {

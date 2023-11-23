@@ -11,16 +11,17 @@ interface Props {
   name: string;
   price: number;
   size: any;
+  id: string;
 }
-function ItemDefault({ img, name, price, size }: Props) {
+function ItemDefault({ img, name, price, size, id }: Props) {
   const router = useRouter();
   const handleViewDetail = () => {
-    router.push("/DetailIteam");
+    router.push(`/DetailIteam/${id}`);
   };
   return (
     <Card sx={{ maxWidth: 310 }} onClick={handleViewDetail}>
       <CardActionArea>
-        <Image width="310" src={img} alt="" />
+        <Image width="310" height="310" src={img} alt="" />
         <CardContent>
           <Typography
             sx={{ fontWeight: 500, fontSize: "24px", color: "#000000" }}
@@ -35,7 +36,7 @@ function ItemDefault({ img, name, price, size }: Props) {
           <Typography
             sx={{ fontWeight: 500, fontSize: "24px", color: "#000000" }}
           >
-            size:{size.join()}
+            size:{size?.join()}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -36,6 +36,8 @@ import {
 } from "@/components/SvgIcon/SvgIcon";
 import { useBoolean, useToggle } from "ahooks";
 import Link from "next/link";
+import axios from "axios";
+import { useRouter } from "next/navigation";
 
 interface Values {
   email: string;
@@ -47,7 +49,7 @@ interface Values {
 }
 function Register() {
   const classes = useStyles();
-
+  const router = useRouter();
   const [visiblePassword, { toggle: togglePassword }] = useToggle();
   const [remember, { toggle: toggleRemember }] = useBoolean(true);
   const {
@@ -58,8 +60,26 @@ function Register() {
     defaultValues: {},
     mode: "onSubmit",
   });
+  const handleCreateAcc = async (data: any) => {
+    try {
+      const { data: res } = await axios.post(
+        "http://localhost:4000/v4/user/register",
+        data
+      );
+      console.log(res);
+
+      if (res.role) {
+        console.log("ok");
+        alert("Đăng Ký thành công");
+        router.push("/Login");
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  };
   const onSubmit = (values: Values) => {
     console.log(values);
+    handleCreateAcc(values);
   };
   return (
     <Box bgcolor="#FFD4DE">

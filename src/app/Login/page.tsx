@@ -33,16 +33,21 @@ import { useStyles } from "./style";
 import { PasswordIcon, UsernameIcon } from "@/components/SvgIcon/SvgIcon";
 import { useBoolean, useToggle } from "ahooks";
 import Link from "next/link";
-
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import { message } from "antd";
 interface Values {
   email: string;
   password: string;
 }
 function Login() {
   const classes = useStyles();
-
+  const router = useRouter();
   const [visiblePassword, { toggle: togglePassword }] = useToggle();
-  const [remember, { toggle: toggleRemember }] = useBoolean(true);
+
+  const [messageApi, contextHolder] = message.useMessage();
   const {
     control,
     handleSubmit,
@@ -51,12 +56,43 @@ function Login() {
     defaultValues: {},
     mode: "onSubmit",
   });
+
+  const handleLogin = async (data: any) => {
+    try {
+      const { data: res } = await axios.post(
+        "http://localhost:4000/v4/user/login",
+        data
+      );
+      console.log(res);
+      if (res.token) {
+        messageApi.open({
+          type: "success",
+          content: "Đăng nhập thành công",
+        });
+        Cookies.set("accessToken", res.token, { expires: 3 });
+        Cookies.set("fullName", res.fullName, { expires: 3 });
+        Cookies.set("email", res.email, { expires: 3 });
+        Cookies.set("phoneNumber", res.phoneNumber, { expires: 3 });
+        Cookies.set("id", res._id, { expires: 3 });
+        Cookies.set("address", res.address, { expires: 3 });
+        router.push("/");
+      }
+    } catch (error) {
+      console.error(error);
+      messageApi.open({
+        type: "error",
+        content: "Email hoặc mật khẩu không đúng",
+      });
+    }
+  };
   const onSubmit = (values: Values) => {
     console.log(values);
+    handleLogin(values);
   };
   return (
     <Box bgcolor="#28293E">
-      <Grid container columns={18} py="40px" px="100px" alignItems="center">
+      {contextHolder}
+      <Grid container columns={18} py="40px" px="110px" alignItems="center">
         <Grid item xs={3}>
           <Box>
             <Link href={"/"}>
@@ -86,7 +122,8 @@ function Login() {
         flexDirection="column"
         justifyContent="center"
         alignItems="center"
-        py="150px"
+        pt="180px"
+        pb="220px"
         my="0px"
       >
         {" "}

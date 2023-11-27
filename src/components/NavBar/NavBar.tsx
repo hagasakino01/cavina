@@ -129,7 +129,7 @@ function NavBar() {
           <Grid item xs={5}>
             <Grid container columns={8}>
               <Grid item xs={4}>
-                <Paper
+                {/* <Paper
                   component="form"
                   sx={{
                     p: "2px 4px",
@@ -153,7 +153,7 @@ function NavBar() {
                   >
                     <SearchIcon />
                   </IconButton>
-                </Paper>
+                </Paper> */}
               </Grid>
               <Grid item xs={4}>
                 <Button

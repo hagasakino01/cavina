@@ -44,7 +44,7 @@ interface DataType {
 }
 
 const radioStyle = {
-  backgroundImage: `url(https://scontent.fhan17-1.fna.fbcdn.net/v/t1.15752-9/370288161_1524718831598230_3612833579774093550_n.png?_nc_cat=107&ccb=1-7&_nc_sid=8cd0a2&_nc_ohc=8w5vYxlTWT4AX_fzGkn&_nc_ht=scontent.fhan17-1.fna&oh=03_AdRVHiqtxjIwXEkMtfWlphtccEyK4gsu7kbTJVtCM2uUOA&oe=658648C5)`,
+  backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/shop-hptt.appspot.com/o/ba7d0d92-857a-429c-9141-edb0d4f7e4ce.png?alt=media)`,
   backgroundSize: "cover",
   backgroundColor: "#FFD4DE",
   backgroundPosition: "center", // Đặt vị trí của hình nền là trung tâm
@@ -71,18 +71,7 @@ function Cart() {
   const router = useRouter();
   const idUser = Cookies.get("id");
   const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
-  const [dataCart, setDataCart] = useState<any>([
-    {
-      key: "1",
-      name: " ",
-      price: 0,
-      color: " ",
-      size: " ",
-      images: [
-        "https://aokhoacnam.vn/upload/product/akn-122/ao-khoac-mang-to-kaki-lot-long.jpg",
-      ],
-    },
-  ]);
+  const [dataCart, setDataCart] = useState<any>([]);
   const [dataCartPay, setDataCartPay] = useState<any>([
     {
       idProduct: "1",
@@ -101,7 +90,7 @@ function Cart() {
   ]);
   const [listVoucher, setListVoucher] = useState<any>([]);
   const [voucherValue, setVoucherValue] = useState<any>(0);
-  const [voucherId, setVoucherId] = useState<any>("");
+  const [voucherId, setVoucherId] = useState<any>("0");
   const [finalPrice, setFinalPrice] = useState<any>(0);
   const [totalPrice, setTotalPrice] = useState<any>(0);
   const optionPay = [

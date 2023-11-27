@@ -50,7 +50,7 @@ function WomenPage() {
     console.log(pageSelected);
   };
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <NavBar />
       <Box px="80px">
         <Typography

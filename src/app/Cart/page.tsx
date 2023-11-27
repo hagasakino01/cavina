@@ -46,7 +46,7 @@ interface DataType {
 const radioStyle = {
   backgroundImage: `url(https://firebasestorage.googleapis.com/v0/b/shop-hptt.appspot.com/o/ba7d0d92-857a-429c-9141-edb0d4f7e4ce.png?alt=media)`,
   backgroundSize: "cover",
-  backgroundColor: "#FFD4DE",
+  backgroundColor: "#F6F2F5",
   backgroundPosition: "center", // Đặt vị trí của hình nền là trung tâm
   width: "200px", // Đảm bảo nút radio mở rộng hết kích thước của nút
   height: "60px", // Đảm bảo nút radio mở rộng hết kích thước của nút
@@ -332,7 +332,7 @@ function Cart() {
   };
 
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <NavBar />
       <Grid container columns={12} px="50px">
         <Grid item xs={6} mt="80px" ml="50px">
@@ -623,7 +623,7 @@ function Cart() {
             >
               <LoadingButton
                 type="submit"
-                sx={{ backgroundColor: "#FF3366", my: "28px" }}
+                sx={{ backgroundColor: "#50C2C9", my: "28px" }}
                 variant="contained"
                 className={classes.btn}
               >

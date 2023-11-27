@@ -27,7 +27,7 @@ function NavBar() {
     console.log(storedToken);
   }, []);
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <Grid container columns={18} py="40px" px="100px" alignItems="center">
         <Grid item xs={3}>
           <Box>
@@ -160,7 +160,7 @@ function NavBar() {
                   variant="contained"
                   color="primary"
                   style={{
-                    backgroundColor: "#FF3366",
+                    backgroundColor: "#50C2C9",
                     padding: "12px 24px",
                     width: "100%",
                     maxWidth: "100%",

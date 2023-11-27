@@ -95,7 +95,7 @@ function DetailIteam(props: any) {
     }
   };
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       {contextHolder}
       <NavBar />
       <Box px="180px">
@@ -109,19 +109,6 @@ function DetailIteam(props: any) {
             alignItems="center"
           >
             <Image width="620" height="620" src={dataDetail.images[0]} alt="" />
-            <IconButton
-              aria-label="add to favorites"
-              onClick={handClickFavorite}
-              style={{ width: "80px", height: "80px" }}
-            >
-              <FavoriteIcon
-                sx={{
-                  color: favorite ? "#F92457" : "#fff",
-                  width: "45px",
-                  height: "450px",
-                }}
-              />
-            </IconButton>
           </Grid>
 
           <Grid item xs={7} mt="80px" px="50px">
@@ -161,7 +148,7 @@ function DetailIteam(props: any) {
                     width: "200px",
                     height: "60px",
                     borderRadius: "15px",
-                    backgroundColor: "#FFD4DE",
+                    backgroundColor: "#F6F2F5",
                     fontSize: "14px",
                     fontWeight: 500,
                     color: "#0D0D0D",
@@ -197,7 +184,7 @@ function DetailIteam(props: any) {
                     width: "200px",
                     height: "60px",
                     borderRadius: "15px",
-                    backgroundColor: "#FFD4DE",
+                    backgroundColor: "#F6F2F5",
                     fontSize: "14px",
                     fontWeight: 500,
                     color: "#0D0D0D",
@@ -230,7 +217,7 @@ function DetailIteam(props: any) {
                 width={900}
                 height={200}
                 sx={{
-                  backgroundColor: "#FFD4DE",
+                  backgroundColor: "#F6F2F5",
                   border: "1px solid #000000",
                   borderRadius: "10px",
                   px: "15px",
@@ -263,7 +250,7 @@ function DetailIteam(props: any) {
                 variant="contained"
                 color="primary"
                 style={{
-                  backgroundColor: "#FF3366",
+                  backgroundColor: "#50C2C9",
                   padding: "12px 24px",
                   width: "250px",
 

@@ -78,7 +78,7 @@ const StyledInput = styled("input")(
   font-weight: 400;
   line-height: 1.375;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};
-  background: ${"#FFD4DE"};
+  background: ${"#F6F2F5"};
   border: 1px solid ${"#000000"};
   box-shadow: 0px 2px 4px ${
     theme.palette.mode === "dark" ? "rgba(0,0,0, 0.5)" : "rgba(0,0,0, 0.05)"
@@ -117,7 +117,7 @@ const StyledButton = styled("button")(
   border: 1px solid;
   border-radius: 999px;
   border-color: ${"#000000"};
-  background: ${"#FFD4DE"};
+  background: ${"#F6F2F5"};
   color: ${theme.palette.mode === "dark" ? grey[200] : grey[900]};
   width: 32px;
   height: 32px;

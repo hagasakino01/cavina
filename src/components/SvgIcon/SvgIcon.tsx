@@ -25,7 +25,7 @@ export const UsernameIcon = (props: SvgIconProps) => (
     </g>
     <defs>
       <clipPath id="a">
-        <path fill="#fff" d="M0 0h18v18H0z" />
+        <path fill="#000000" d="M0 0h18v18H0z" />
       </clipPath>
     </defs>
   </SvgIcon>

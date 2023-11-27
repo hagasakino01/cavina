@@ -90,7 +90,7 @@ function Login() {
     handleLogin(values);
   };
   return (
-    <Box bgcolor="#28293E">
+    <Box bgcolor="#F6F6F6">
       {contextHolder}
       <Grid container columns={18} py="40px" px="110px" alignItems="center">
         <Grid item xs={3}>
@@ -106,7 +106,7 @@ function Login() {
                       fontWeight: 500,
                       marginBottom: "2px",
                       fontSize: "40px",
-                      color: "#fff",
+                      color: "#000000",
                     }}
                   >
                     Cavila Store
@@ -132,7 +132,7 @@ function Login() {
             fontWeight: 600,
             marginBottom: "2px",
             fontSize: "48px",
-            color: "#fff",
+            color: "#000000",
           }}
         >
           Đăng nhập
@@ -230,7 +230,7 @@ function Login() {
             >
               <LoadingButton
                 type="submit"
-                sx={{ backgroundColor: "#FF3366", my: "10px" }}
+                sx={{ backgroundColor: "#50C2C9", my: "10px" }}
                 variant="contained"
                 className={classes.btn}
               >
@@ -245,7 +245,7 @@ function Login() {
               fontWeight: 500,
               marginBottom: "2px",
               fontSize: "24px",
-              color: "#fff",
+              color: "#000000",
             }}
           >
             Bạn chưa có tài khoản? Đăng ký ngay!

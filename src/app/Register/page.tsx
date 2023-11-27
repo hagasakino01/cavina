@@ -82,7 +82,7 @@ function Register() {
     handleCreateAcc(values);
   };
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <Grid container columns={18} py="40px" px="100px" alignItems="center">
         <Grid item xs={3}>
           <Box>
@@ -97,7 +97,7 @@ function Register() {
                       fontWeight: 500,
                       marginBottom: "2px",
                       fontSize: "40px",
-                      color: "#fff",
+                      color: "#000000",
                     }}
                   >
                     Cavila Store
@@ -371,7 +371,7 @@ function Register() {
             >
               <LoadingButton
                 type="submit"
-                sx={{ backgroundColor: "#FF3366", my: "10px" }}
+                sx={{ backgroundColor: "#50C2C9", my: "10px" }}
                 variant="contained"
                 className={classes.btn}
               >

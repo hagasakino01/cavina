@@ -46,7 +46,7 @@ function YourOderDetail() {
     "Đơn hàng đang chờ được xác nhận (12:22 03/11/2023)",
   ];
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <NavBar />
       <Box display="flex" flexDirection="column" mx="100px">
         <Typography

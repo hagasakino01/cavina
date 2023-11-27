@@ -30,7 +30,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#fff",
+              color: "#000000",
               ml: "40px",
             }}
           >
@@ -50,7 +50,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#fff",
+              color: "#000000",
               ml: "40px",
             }}
           >
@@ -70,7 +70,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#fff",
+              color: "#000000",
               ml: "40px",
             }}
           >
@@ -90,7 +90,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#fff",
+              color: "#000000",
               ml: "40px",
             }}
           >

@@ -246,7 +246,7 @@ function ModalUpdateUserInfo({ visible, onClose }: ModalUpdateUserInfoProps) {
         >
           <LoadingButton
             type="submit"
-            sx={{ backgroundColor: "#FF3366", my: "10px" }}
+            sx={{ backgroundColor: "#50C2C9", my: "10px" }}
             variant="contained"
             className={classes.btn}
           >

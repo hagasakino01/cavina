@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <NavBar />
       <Grid container columns={11} px="80px">
         <Grid item xs={6} mt="80px">
@@ -51,7 +51,7 @@ export default function Home() {
             <Grid item xs={8} mt="80px">
               <Box
                 sx={{
-                  backgroundColor: "#FFD4DE",
+                  backgroundColor: "#F6F2F5",
                   border: "2px solid #000000",
                   borderRadius: "10px",
                   px: "5px",
@@ -81,7 +81,7 @@ export default function Home() {
                 variant="contained"
                 color="primary"
                 style={{
-                  backgroundColor: "#FF3366",
+                  backgroundColor: "#50C2C9",
                   padding: "8px 24px",
                   width: "100%",
                   maxWidth: "100%",

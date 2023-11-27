@@ -143,7 +143,7 @@ function YourOder() {
     },
   ];
   return (
-    <Box bgcolor="#FFD4DE">
+    <Box bgcolor="#F6F2F5">
       <NavBar />
       <Box>
         <Box display="flex" flexDirection="column" mx="100px">

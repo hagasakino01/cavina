@@ -17,7 +17,7 @@ function Boxcustom({ Contents, size, justifyContent }: any) {
       alignItems={justifyContent}
       width={size}
       sx={{
-        backgroundColor: "#FFD4DE",
+        backgroundColor: "#F6F2F5",
         border: "1px solid #000000",
         borderRadius: "10px",
         px: "15px",

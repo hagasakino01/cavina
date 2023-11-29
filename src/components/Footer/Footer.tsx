@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 import Image from "next/image";
 import React from "react";
-import ImgFace from "public/img/🦆 icon _facebook_.png";
-import ImgInsta from "public/img/🦆 icon _instagram_.png";
-import ImgPhone from "public/img/🦆 icon _phone_.png";
-import ImgLoca from "public/img/🦆 icon _location pin_.png";
+import ImgFace from "public/img/facebook.png";
+import ImgInsta from "public/img/instagram.png";
+import ImgPhone from "public/img/phone.png";
+import ImgLoca from "public/img/location.png";
 function Footer() {
   return (
     <Box
@@ -30,7 +30,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#000000",
+              color: "#fff",
               ml: "40px",
             }}
           >
@@ -50,7 +50,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#000000",
+              color: "#fff",
               ml: "40px",
             }}
           >
@@ -70,7 +70,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#000000",
+              color: "#fff",
               ml: "40px",
             }}
           >
@@ -90,7 +90,7 @@ function Footer() {
             sx={{
               fontWeight: 400,
               fontSize: "28px",
-              color: "#000000",
+              color: "#fff",
               ml: "40px",
             }}
           >

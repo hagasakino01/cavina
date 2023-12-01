@@ -23,6 +23,7 @@ import NumberInput from "@/components/InputQuantity/InputQuantity";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useRouter } from "next/navigation";
+import "../../style.css";
 import { message } from "antd";
 function DetailIteam(props: any) {
   const router = useRouter();
@@ -95,184 +96,195 @@ function DetailIteam(props: any) {
     }
   };
   return (
-    <Box bgcolor="#F6F2F5">
-      {contextHolder}
-      <NavBar />
-      <Box px="180px">
-        <Grid container columns={10}>
-          <Grid
-            item
-            xs={3}
-            mt="80px"
-            display="flex"
-            flexDirection="column"
-            alignItems="center"
-          >
-            <Image width="620" height="620" src={dataDetail.images[0]} alt="" />
-          </Grid>
+    <div className="bg-home bg-center overflow-hidden relative ">
+      <Box>
+        {contextHolder}
+        <NavBar />
+        <Box px="180px">
+          <Grid container columns={10}>
+            <Grid
+              item
+              xs={3}
+              mt="80px"
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+            >
+              <Image
+                width="620"
+                height="620"
+                src={dataDetail.images[0]}
+                alt=""
+              />
+            </Grid>
 
-          <Grid item xs={7} mt="80px" px="50px">
-            <Box display="flex" flexDirection="row" mb={"30px"}>
-              <Boxcustom
-                Contents={"Tên sản phẩm"}
-                size={250}
-                justifyContent={"center"}
-              />
-              <Boxcustom
-                Contents={dataDetail.name}
-                size={400}
-                justifyContent={"left"}
-              />
-            </Box>
-            <Box display="flex" flexDirection="row" mb={"30px"}>
-              <Boxcustom
-                Contents={"Giá"}
-                size={250}
-                justifyContent={"center"}
-              />
-              <Boxcustom
-                Contents={`${dataDetail.price.toLocaleString("de-DE")} đ`}
-                size={400}
-                justifyContent={"left"}
-              />
-            </Box>
-            <Box display="flex" flexDirection="row" mb={"30px"}>
-              <Boxcustom
-                Contents={"Size"}
-                size={250}
-                justifyContent={"center"}
-              />
-              <FormControl>
-                <Select
-                  sx={{
-                    width: "200px",
-                    height: "60px",
-                    borderRadius: "15px",
-                    backgroundColor: "#F6F2F5",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    color: "#0D0D0D",
-                    "& svg": {
-                      color: "#0D0D0D",
-                    },
-                    ml: "20px",
-                  }}
-                  value={valueSize}
-                  onChange={onSelectSize}
-                >
-                  {dataDetail.sizes.map((item: any, index: number) => (
-                    <MenuItem
-                      key={index}
-                      value={item}
-                      sx={{ fontSize: "14px", color: "#EA6200" }}
-                    >
-                      <Typography sx={{ fontSize: "14px" }}>{item}</Typography>
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-            <Box display="flex" flexDirection="row" mb={"30px"}>
-              <Boxcustom
-                Contents={"Màu sắc"}
-                size={250}
-                justifyContent={"center"}
-              />
-              <FormControl>
-                <Select
-                  sx={{
-                    width: "200px",
-                    height: "60px",
-                    borderRadius: "15px",
-                    backgroundColor: "#F6F2F5",
-                    fontSize: "14px",
-                    fontWeight: 500,
-                    color: "#0D0D0D",
-                    "& svg": {
-                      color: "#0D0D0D",
-                    },
-                    ml: "20px",
-                  }}
-                  value={valueColor}
-                  onChange={onSelectColor}
-                >
-                  {dataDetail.colors.map((item: any, index: number) => (
-                    <MenuItem
-                      key={index}
-                      value={item}
-                      sx={{ fontSize: "14px", color: "#EA6200" }}
-                    >
-                      <Typography sx={{ fontSize: "14px" }}>{item}</Typography>
-                    </MenuItem>
-                  ))}
-                </Select>
-              </FormControl>
-            </Box>
-            <Box display="flex" flexDirection="row" mb={"30px"}>
-              <Box
-                display="flex"
-                flexDirection="column"
-                justifyContent={"flex-start"}
-                alignItems="left"
-                width={900}
-                height={200}
-                sx={{
-                  backgroundColor: "#F6F2F5",
-                  border: "1px solid #000000",
-                  borderRadius: "10px",
-                  px: "15px",
-                  py: "15px",
-                }}
-                mx="20px"
-              >
-                <Typography
-                  sx={{ fontWeight: 600, fontSize: "20px", color: "#000000" }}
-                >
-                  {dataDetail.description}
-                </Typography>
+            <Grid item xs={7} mt="80px" px="50px">
+              <Box display="flex" flexDirection="row" mb={"30px"}>
+                <Boxcustom
+                  Contents={"Tên sản phẩm"}
+                  size={250}
+                  justifyContent={"center"}
+                />
+                <Boxcustom
+                  Contents={dataDetail.name}
+                  size={400}
+                  justifyContent={"left"}
+                />
               </Box>
-            </Box>
-            <Box display="flex" flexDirection="row" mb={"30px"}>
-              <Boxcustom
-                Contents={"Số lượng"}
-                size={140}
-                justifyContent={"center"}
-              />
-              {/* dsvdgdgfdgdfgdfg */}
-              <NumberInput
-                aria-label="Quantity Input"
-                min={1}
-                defaultValue={1}
-              />
-            </Box>
-            <Box mb={"50px"}>
-              <Button
-                variant="contained"
-                color="primary"
-                style={{
-                  backgroundColor: "#50C2C9",
-                  padding: "12px 24px",
-                  width: "250px",
-
-                  marginLeft: "20px",
-                  textTransform: "none",
-                }}
-                onClick={handleAddToCard}
-              >
-                <Typography
+              <Box display="flex" flexDirection="row" mb={"30px"}>
+                <Boxcustom
+                  Contents={"Giá"}
+                  size={250}
+                  justifyContent={"center"}
+                />
+                <Boxcustom
+                  Contents={`${dataDetail.price.toLocaleString("de-DE")} đ`}
+                  size={400}
+                  justifyContent={"left"}
+                />
+              </Box>
+              <Box display="flex" flexDirection="row" mb={"30px"}>
+                <Boxcustom
+                  Contents={"Size"}
+                  size={250}
+                  justifyContent={"center"}
+                />
+                <FormControl>
+                  <Select
+                    sx={{
+                      width: "200px",
+                      height: "60px",
+                      borderRadius: "15px",
+                      backgroundColor: "#F6F2F5",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      color: "#0D0D0D",
+                      "& svg": {
+                        color: "#0D0D0D",
+                      },
+                      ml: "20px",
+                    }}
+                    value={valueSize}
+                    onChange={onSelectSize}
+                  >
+                    {dataDetail.sizes.map((item: any, index: number) => (
+                      <MenuItem
+                        key={index}
+                        value={item}
+                        sx={{ fontSize: "14px", color: "#EA6200" }}
+                      >
+                        <Typography sx={{ fontSize: "14px" }}>
+                          {item}
+                        </Typography>
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box display="flex" flexDirection="row" mb={"30px"}>
+                <Boxcustom
+                  Contents={"Màu sắc"}
+                  size={250}
+                  justifyContent={"center"}
+                />
+                <FormControl>
+                  <Select
+                    sx={{
+                      width: "200px",
+                      height: "60px",
+                      borderRadius: "15px",
+                      backgroundColor: "#F6F2F5",
+                      fontSize: "14px",
+                      fontWeight: 500,
+                      color: "#0D0D0D",
+                      "& svg": {
+                        color: "#0D0D0D",
+                      },
+                      ml: "20px",
+                    }}
+                    value={valueColor}
+                    onChange={onSelectColor}
+                  >
+                    {dataDetail.colors.map((item: any, index: number) => (
+                      <MenuItem
+                        key={index}
+                        value={item}
+                        sx={{ fontSize: "14px", color: "#EA6200" }}
+                      >
+                        <Typography sx={{ fontSize: "14px" }}>
+                          {item}
+                        </Typography>
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+              <Box display="flex" flexDirection="row" mb={"30px"}>
+                <Box
+                  display="flex"
+                  flexDirection="column"
+                  justifyContent={"flex-start"}
+                  alignItems="left"
+                  width={900}
+                  height={200}
                   sx={{
-                    fontWeight: 500,
-                    fontSize: "18px",
+                    backgroundColor: "#F6F2F5",
+                    border: "1px solid #000000",
+                    borderRadius: "10px",
+                    px: "15px",
+                    py: "15px",
                   }}
+                  mx="20px"
                 >
-                  Thêm vào giỏ hàng
-                </Typography>
-              </Button>
-            </Box>
+                  <Typography
+                    sx={{ fontWeight: 600, fontSize: "20px", color: "#000000" }}
+                  >
+                    {dataDetail.description}
+                  </Typography>
+                </Box>
+              </Box>
+              <Box display="flex" flexDirection="row" mb={"30px"}>
+                <Boxcustom
+                  Contents={"Số lượng"}
+                  size={140}
+                  justifyContent={"center"}
+                />
+                {/* dsvdgdgfdgdfgdfg */}
+                <NumberInput
+                  aria-label="Quantity Input"
+                  min={1}
+                  defaultValue={1}
+                />
+              </Box>
+              <Box mb={"50px"}>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  style={{
+                    backgroundColor: "#50C2C9",
+                    padding: "12px 24px",
+                    width: "250px",
+
+                    marginLeft: "20px",
+                    textTransform: "none",
+                  }}
+                  onClick={handleAddToCard}
+                >
+                  <Typography
+                    sx={{
+                      fontWeight: 500,
+                      fontSize: "18px",
+                    }}
+                  >
+                    Thêm vào giỏ hàng
+                  </Typography>
+                </Button>
+              </Box>
+            </Grid>
           </Grid>
-        </Grid>
+        </Box>
       </Box>
-    </Box>
+    </div>
   );
 }
 

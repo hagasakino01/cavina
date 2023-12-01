@@ -22,7 +22,7 @@ import type { ColumnsType } from "antd/es/table";
 import ImgItem from "public/img/ItemItem.png";
 import Image from "next/image";
 import axios from "axios";
-
+import "../style.css";
 interface DataType {
   key: string;
   name: string;
@@ -143,30 +143,32 @@ function YourOder() {
     },
   ];
   return (
-    <Box bgcolor="#F6F2F5">
-      <NavBar />
+    <div className="bg-home bg-center overflow-hidden relative ">
       <Box>
-        <Box display="flex" flexDirection="column" mx="100px">
-          <Typography
-            sx={{
-              fontWeight: 600,
-              fontSize: "42px",
-              color: "#DFA32E",
-              my: "18px",
-            }}
-          >
-            Đơn hàng của bạn
-          </Typography>
-          <Box>
-            <Table
-              columns={columns}
-              pagination={{ pageSize: 5 }}
-              dataSource={dataCart}
-            />
+        <NavBar />
+        <Box>
+          <Box display="flex" flexDirection="column" mx="100px">
+            <Typography
+              sx={{
+                fontWeight: 600,
+                fontSize: "42px",
+                color: "#DFA32E",
+                my: "18px",
+              }}
+            >
+              Đơn hàng của bạn
+            </Typography>
+            <Box>
+              <Table
+                columns={columns}
+                pagination={{ pageSize: 5 }}
+                dataSource={dataCart}
+              />
+            </Box>
           </Box>
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 }
 

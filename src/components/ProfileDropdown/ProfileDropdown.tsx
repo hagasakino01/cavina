@@ -135,14 +135,14 @@ function ProfileDropdown() {
         </Box>
         <MenuItem>
           <Link href={"/YourOder"}>
-            <Typography color="#21388A" fontWeight={500}>
+            <Typography color="#50C2C9" fontWeight={500}>
               Đơn hàng của bạn
             </Typography>
           </Link>
         </MenuItem>
         <MenuItem>
           <Typography
-            color="#21388A"
+            color="#50C2C9"
             fontWeight={500}
             onClick={handleOpenUpdateUserModal}
           >
@@ -151,7 +151,7 @@ function ProfileDropdown() {
         </MenuItem>
         <MenuItem>
           <Typography
-            color="#21388A"
+            color="#50C2C9"
             fontWeight={500}
             onClick={handleOpenChangePassWordModal}
           >

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -6,6 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import { useRouter } from "next/navigation";
+import { Image } from "antd";
 interface Props {
   img: any;
   name: string;
@@ -21,7 +21,7 @@ function ItemDefault({ img, name, price, size, id }: Props) {
   return (
     <Card sx={{ maxWidth: 310 }} onClick={handleViewDetail}>
       <CardActionArea>
-        <Image width="310" height="310" src={img} alt="" />
+        <Image width={310} height={360} src={img} alt="" />
         <CardContent>
           <Typography
             sx={{ fontWeight: 500, fontSize: "24px", color: "#000000" }}

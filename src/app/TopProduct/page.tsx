@@ -16,6 +16,7 @@ import React, { useEffect, useState } from "react";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
 import axios from "axios";
+import "../style.css";
 import { useRouter } from "next/navigation";
 function TopProduct() {
   const [dataTopList, setDataTopList] = useState<any>([
@@ -54,48 +55,50 @@ function TopProduct() {
     console.log(pageSelected);
   };
   return (
-    <Box bgcolor="#F6F2F5">
-      <NavBar />
-      <Box px="80px">
-        <Typography
-          sx={{ fontWeight: 500, fontSize: "48px", color: "#000000" }}
-          my="30px"
-        >
-          Sản phẩm nổi bật
-        </Typography>
-      </Box>
+    <div className="bg-home bg-center overflow-hidden relative ">
       <Box>
-        <Grid container columns={8}>
-          {dataTopList.map((item: any) => (
-            <Grid key={item.id} item xs={2} px="80px" py="40px">
-              <ItemDefault
-                img={item.images[0]}
-                name={item.name}
-                price={item.price}
-                size={item.sizes}
-                id={item._id}
+        <NavBar />
+        <Box px="80px">
+          <Typography
+            sx={{ fontWeight: 500, fontSize: "48px", color: "#000000" }}
+            my="30px"
+          >
+            Sản phẩm nổi bật
+          </Typography>
+        </Box>
+        <Box>
+          <Grid container columns={8}>
+            {dataTopList.map((item: any) => (
+              <Grid key={item.id} item xs={2} px="80px" py="40px">
+                <ItemDefault
+                  img={item.images[0]}
+                  name={item.name}
+                  price={item.price}
+                  size={item.sizes}
+                  id={item._id}
+                />
+              </Grid>
+            ))}
+          </Grid>
+          <Box
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            py="30px"
+          >
+            <Stack spacing={2}>
+              <Pagination
+                count={10}
+                onChange={handleChangePaginate}
+                variant="outlined"
+                shape="rounded"
               />
-            </Grid>
-          ))}
-        </Grid>
-        <Box
-          display="flex"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-          py="30px"
-        >
-          <Stack spacing={2}>
-            <Pagination
-              count={10}
-              onChange={handleChangePaginate}
-              variant="outlined"
-              shape="rounded"
-            />
-          </Stack>
+            </Stack>
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </div>
   );
 }
 

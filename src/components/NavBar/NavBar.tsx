@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Cookies from "js-cookie";
 import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
+import "../../app/style.css";
 function NavBar() {
   const router = useRouter();
   const handleLogin = () => {
@@ -27,7 +28,7 @@ function NavBar() {
     console.log(storedToken);
   }, []);
   return (
-    <Box bgcolor="#F6F2F5">
+    <Box>
       <Grid container columns={18} py="40px" px="100px" alignItems="center">
         <Grid item xs={3}>
           <Box>
@@ -39,7 +40,7 @@ function NavBar() {
                 <Grid item xs={23}>
                   <Typography
                     sx={{
-                      fontWeight: 500,
+                      fontWeight: 600,
                       marginBottom: "2px",
                       fontSize: "40px",
                       color: "#000000",

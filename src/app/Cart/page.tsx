@@ -311,6 +311,7 @@ function Cart() {
       );
       console.log(res);
       alert("Đặt hàng thành công");
+      router.push("/");
     } catch (error) {
       console.error(error);
     }
@@ -339,8 +340,8 @@ function Cart() {
           <Box
             display="flex"
             flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
+            justifyContent="left"
+            alignItems="flex-start"
           >
             <Typography
               sx={{
@@ -348,6 +349,7 @@ function Cart() {
                 fontSize: "36px",
                 color: "#DFA32E",
                 my: "18px",
+                mx: "100px",
               }}
             >
               Thông tin vận chuyển

@@ -36,6 +36,7 @@ import Link from "next/link";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import "../style.css";
 import { toast } from "react-toastify";
 import { message } from "antd";
 interface Values {
@@ -90,169 +91,171 @@ function Login() {
     handleLogin(values);
   };
   return (
-    <Box bgcolor="#F6F6F6">
-      {contextHolder}
-      <Grid container columns={18} py="40px" px="110px" alignItems="center">
-        <Grid item xs={3}>
-          <Box>
-            <Link href={"/"}>
-              <Grid container columns={26}>
-                <Grid item xs={3}>
-                  <Image src={logo} alt="" />
-                </Grid>
-                <Grid item xs={23}>
-                  <Typography
-                    sx={{
-                      fontWeight: 500,
-                      marginBottom: "2px",
-                      fontSize: "40px",
-                      color: "#000000",
-                    }}
-                  >
-                    Cavila Store
-                  </Typography>
-                </Grid>
-              </Grid>
-            </Link>
-          </Box>
-        </Grid>
-      </Grid>
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="center"
-        alignItems="center"
-        pt="180px"
-        pb="220px"
-        my="0px"
-      >
-        {" "}
-        <Typography
-          sx={{
-            fontWeight: 600,
-            marginBottom: "2px",
-            fontSize: "48px",
-            color: "#000000",
-          }}
-        >
-          Đăng nhập
-        </Typography>
-        <Box sx={{ width: "400px", my: "20px" }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: "Email không được bỏ trống",
-                },
-              }}
-              name="email"
-              render={({ field }) => (
-                <Box my="15px">
-                  <OutlinedInput
-                    {...field}
-                    sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
-                    id="email"
-                    placeholder="Email"
-                    error={!isEmpty(errors.email)}
-                    autoComplete="off"
-                    className={classes.input}
-                    fullWidth
-                    startAdornment={
-                      <InputAdornment position="start">
-                        <UsernameIcon />
-                      </InputAdornment>
-                    }
-                  />
-                  {!isEmpty(errors.email) && (
-                    <Typography fontSize={12} color="#ff0000" my="5px">
-                      {get(errors, "email.message", "")}
+    <div className="bg-home bg-center overflow-hidden relative ">
+      <Box>
+        {contextHolder}
+        <Grid container columns={18} py="40px" px="110px" alignItems="center">
+          <Grid item xs={3}>
+            <Box>
+              <Link href={"/"}>
+                <Grid container columns={26}>
+                  <Grid item xs={3}>
+                    <Image src={logo} alt="" />
+                  </Grid>
+                  <Grid item xs={23}>
+                    <Typography
+                      sx={{
+                        fontWeight: 500,
+                        marginBottom: "2px",
+                        fontSize: "40px",
+                        color: "#000000",
+                      }}
+                    >
+                      Cavila Store
                     </Typography>
-                  )}
-                </Box>
-              )}
-            />
-            <Controller
-              control={control}
-              rules={{
-                required: {
-                  value: true,
-                  message: "Mật khẩu không được bỏ trống",
-                },
-              }}
-              name="password"
-              render={({ field }) => (
-                <Box my="15px">
-                  <OutlinedInput
-                    {...field}
-                    id="password"
-                    sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
-                    placeholder="Mật khẩu"
-                    error={!isEmpty(errors.password)}
-                    autoComplete="off"
-                    type={visiblePassword ? "text" : "password"}
-                    className={classes.input}
-                    fullWidth
-                    startAdornment={
-                      <InputAdornment position="start">
-                        <PasswordIcon />
-                      </InputAdornment>
-                    }
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={togglePassword}
-                        >
-                          {!visiblePassword ? (
-                            <VisibilityOff />
-                          ) : (
-                            <Visibility />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                  {!isEmpty(errors.password) && (
-                    <Typography fontSize={12} color="#ff0000" my="5px">
-                      {get(errors, "password.message", "")}
-                    </Typography>
-                  )}
-                </Box>
-              )}
-            />
-            <Box
-              display="flex"
-              flexDirection="column"
-              justifyContent="center"
-              alignItems="center"
-            >
-              <LoadingButton
-                type="submit"
-                sx={{ backgroundColor: "#50C2C9", my: "10px" }}
-                variant="contained"
-                className={classes.btn}
-              >
-                Đăng nhập
-              </LoadingButton>
+                  </Grid>
+                </Grid>
+              </Link>
             </Box>
-          </form>
-        </Box>
-        <Link href={"/Register"}>
+          </Grid>
+        </Grid>
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          pt="180px"
+          pb="220px"
+          my="0px"
+        >
+          {" "}
           <Typography
             sx={{
-              fontWeight: 500,
+              fontWeight: 600,
               marginBottom: "2px",
-              fontSize: "24px",
+              fontSize: "48px",
               color: "#000000",
             }}
           >
-            Bạn chưa có tài khoản? Đăng ký ngay!
+            Đăng nhập
           </Typography>
-        </Link>
+          <Box sx={{ width: "400px", my: "20px" }}>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Controller
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: "Email không được bỏ trống",
+                  },
+                }}
+                name="email"
+                render={({ field }) => (
+                  <Box my="15px">
+                    <OutlinedInput
+                      {...field}
+                      sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
+                      id="email"
+                      placeholder="Email"
+                      error={!isEmpty(errors.email)}
+                      autoComplete="off"
+                      className={classes.input}
+                      fullWidth
+                      startAdornment={
+                        <InputAdornment position="start">
+                          <UsernameIcon />
+                        </InputAdornment>
+                      }
+                    />
+                    {!isEmpty(errors.email) && (
+                      <Typography fontSize={12} color="#ff0000" my="5px">
+                        {get(errors, "email.message", "")}
+                      </Typography>
+                    )}
+                  </Box>
+                )}
+              />
+              <Controller
+                control={control}
+                rules={{
+                  required: {
+                    value: true,
+                    message: "Mật khẩu không được bỏ trống",
+                  },
+                }}
+                name="password"
+                render={({ field }) => (
+                  <Box my="15px">
+                    <OutlinedInput
+                      {...field}
+                      id="password"
+                      sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
+                      placeholder="Mật khẩu"
+                      error={!isEmpty(errors.password)}
+                      autoComplete="off"
+                      type={visiblePassword ? "text" : "password"}
+                      className={classes.input}
+                      fullWidth
+                      startAdornment={
+                        <InputAdornment position="start">
+                          <PasswordIcon />
+                        </InputAdornment>
+                      }
+                      endAdornment={
+                        <InputAdornment position="end">
+                          <IconButton
+                            aria-label="toggle password visibility"
+                            onClick={togglePassword}
+                          >
+                            {!visiblePassword ? (
+                              <VisibilityOff />
+                            ) : (
+                              <Visibility />
+                            )}
+                          </IconButton>
+                        </InputAdornment>
+                      }
+                    />
+                    {!isEmpty(errors.password) && (
+                      <Typography fontSize={12} color="#ff0000" my="5px">
+                        {get(errors, "password.message", "")}
+                      </Typography>
+                    )}
+                  </Box>
+                )}
+              />
+              <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <LoadingButton
+                  type="submit"
+                  sx={{ backgroundColor: "#50C2C9", my: "10px" }}
+                  variant="contained"
+                  className={classes.btn}
+                >
+                  Đăng nhập
+                </LoadingButton>
+              </Box>
+            </form>
+          </Box>
+          <Link href={"/Register"}>
+            <Typography
+              sx={{
+                fontWeight: 500,
+                marginBottom: "2px",
+                fontSize: "24px",
+                color: "#000000",
+              }}
+            >
+              Bạn chưa có tài khoản? Đăng ký ngay!
+            </Typography>
+          </Link>
+        </Box>
       </Box>
-    </Box>
+    </div>
   );
 }
 

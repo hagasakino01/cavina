@@ -25,7 +25,7 @@ import axios from "axios";
 import Stepper from "@mui/material/Stepper";
 import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
-
+import "../style.css";
 function QontoStepIcon(props: any) {
   const { active, completed, className } = props;
 
@@ -46,44 +46,46 @@ function YourOderDetail() {
     "Đơn hàng đang chờ được xác nhận (12:22 03/11/2023)",
   ];
   return (
-    <Box bgcolor="#F6F2F5">
-      <NavBar />
-      <Box display="flex" flexDirection="column" mx="100px">
-        <Typography
-          sx={{
-            fontWeight: 600,
-            fontSize: "42px",
-            color: "#DFA32E",
-            my: "18px",
-          }}
-        >
-          Đơn hàng của bạn
-        </Typography>
+    <div className="bg-home bg-center overflow-hidden relative ">
+      <Box>
+        <NavBar />
+        <Box display="flex" flexDirection="column" mx="100px">
+          <Typography
+            sx={{
+              fontWeight: 600,
+              fontSize: "42px",
+              color: "#DFA32E",
+              my: "18px",
+            }}
+          >
+            Đơn hàng của bạn
+          </Typography>
+        </Box>
+        <Box sx={{ width: "100%", height: "800px" }} mx="100px">
+          <Stepper orientation="vertical">
+            {steps.map((step, index) => (
+              <Step key={step}>
+                <StepLabel
+                  StepIconComponent={QontoStepIcon}
+                  optional={
+                    <Typography
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: "18px",
+                        color: "#0DC06A",
+                      }}
+                      variant="caption"
+                    >
+                      {step}
+                    </Typography>
+                  }
+                ></StepLabel>
+              </Step>
+            ))}
+          </Stepper>
+        </Box>
       </Box>
-      <Box sx={{ width: "100%", height: "800px" }} mx="100px">
-        <Stepper orientation="vertical">
-          {steps.map((step, index) => (
-            <Step key={step}>
-              <StepLabel
-                StepIconComponent={QontoStepIcon}
-                optional={
-                  <Typography
-                    sx={{
-                      fontWeight: 600,
-                      fontSize: "18px",
-                      color: "#0DC06A",
-                    }}
-                    variant="caption"
-                  >
-                    {step}
-                  </Typography>
-                }
-              ></StepLabel>
-            </Step>
-          ))}
-        </Stepper>
-      </Box>
-    </Box>
+    </div>
   );
 }
 

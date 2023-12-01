@@ -27,6 +27,7 @@ import type { TableRowSelection } from "antd/es/table/interface";
 import Image from "next/image";
 import axios from "axios";
 import VoucherImg from "public/img/Subtraction.png";
+import "../style.css";
 import Boxcustom from "@/components/BoxCustom/Boxcustom";
 interface Values {
   fullName: string;
@@ -230,7 +231,9 @@ function Cart() {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={() => handleDel(record)}>Delete</a>
+          <a className="underline" onClick={() => handleDel(record)}>
+            Delete
+          </a>
         </Space>
       ),
     },
@@ -333,329 +336,331 @@ function Cart() {
   };
 
   return (
-    <Box bgcolor="#F6F2F5">
-      <NavBar />
-      <Grid container columns={12} px="50px">
-        <Grid item xs={6} mt="80px" ml="50px">
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="left"
-            alignItems="flex-start"
-          >
-            <Typography
-              sx={{
-                fontWeight: 600,
-                fontSize: "36px",
-                color: "#DFA32E",
-                my: "18px",
-                mx: "100px",
-              }}
+    <div className="bg-home bg-center overflow-hidden relative ">
+      <Box>
+        <NavBar />
+        <Grid container columns={12} px="50px">
+          <Grid item xs={6} mt="80px" ml="50px">
+            <Box
+              display="flex"
+              flexDirection="column"
+              justifyContent="left"
+              alignItems="flex-start"
             >
-              Thông tin vận chuyển
-            </Typography>
-          </Box>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Box>
-              <Grid container columns={12} px="80px">
-                <Grid item xs={6} px="20px">
-                  <Controller
-                    control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: "Họ và tên không được bỏ trống",
-                      },
-                    }}
-                    name="fullName"
-                    render={({ field }) => (
-                      <Box>
-                        <InputLabel
-                          sx={{ color: "#015A94", mb: "5px" }}
-                          htmlFor="fullName"
-                        >
-                          Họ và tên
-                        </InputLabel>
-                        <OutlinedInput
-                          {...field}
-                          sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
-                          id="fullName"
-                          placeholder="Họ và tên"
-                          error={!isEmpty(errors.fullName)}
-                          autoComplete="off"
-                          className={classes.input}
-                          fullWidth
-                        />
-                        {!isEmpty(errors.fullName) && (
-                          <Typography fontSize={12} color="#ff0000" my="5px">
-                            {get(errors, "fullName.message", "")}
-                          </Typography>
-                        )}
-                      </Box>
-                    )}
-                  />
-                </Grid>
-                <Grid item xs={6} px="20px">
-                  <Controller
-                    control={control}
-                    rules={{
-                      required: {
-                        value: true,
-                        message: "Số điện thoại không được bỏ trống",
-                      },
-                    }}
-                    name="phoneNumber"
-                    render={({ field }) => (
-                      <Box>
-                        <InputLabel
-                          sx={{ color: "#015A94", mb: "5px" }}
-                          htmlFor="phoneNumber"
-                        >
-                          Số điện thoại
-                        </InputLabel>
-                        <OutlinedInput
-                          {...field}
-                          sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
-                          id="phoneNumber"
-                          placeholder="Số điện thoại"
-                          error={!isEmpty(errors.phoneNumber)}
-                          autoComplete="off"
-                          className={classes.input}
-                          fullWidth
-                        />
-                        {!isEmpty(errors.phoneNumber) && (
-                          <Typography fontSize={12} color="#ff0000" my="5px">
-                            {get(errors, "phoneNumber.message", "")}
-                          </Typography>
-                        )}
-                      </Box>
-                    )}
-                  />
-                </Grid>
-              </Grid>
-            </Box>
-            <Box px="100px">
-              <Controller
-                control={control}
-                rules={{
-                  required: {
-                    value: true,
-                    message: "địa chir nhận hàng không được bỏ trống",
-                  },
-                }}
-                name="address"
-                render={({ field }) => (
-                  <Box>
-                    <InputLabel
-                      sx={{ color: "#015A94", mb: "5px" }}
-                      htmlFor="address"
-                    >
-                      Địa chỉ nhận hàng
-                    </InputLabel>
-                    <OutlinedInput
-                      {...field}
-                      sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
-                      id="address"
-                      placeholder="địa chỉ nhận hàng"
-                      error={!isEmpty(errors.address)}
-                      autoComplete="off"
-                      className={classes.input}
-                      fullWidth
-                    />
-                    {!isEmpty(errors.address) && (
-                      <Typography fontSize={12} color="#ff0000" my="5px">
-                        {get(errors, "address.message", "")}
-                      </Typography>
-                    )}
-                  </Box>
-                )}
-              />
-            </Box>
-            <Box px="100px">
-              <Controller
-                control={control}
-                rules={{
-                  required: {
-                    value: false,
-                    message: "Ghi chú nhận hàng không được bỏ trống",
-                  },
-                }}
-                name="note"
-                render={({ field }) => (
-                  <Box>
-                    <InputLabel
-                      sx={{ color: "#015A94", mb: "5px" }}
-                      htmlFor="note"
-                    >
-                      Ghi chú
-                    </InputLabel>
-                    <OutlinedInput
-                      {...field}
-                      sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
-                      id="note"
-                      placeholder="Ghi chú"
-                      error={!isEmpty(errors.note)}
-                      autoComplete="off"
-                      className={classes.input}
-                      fullWidth
-                    />
-                    {!isEmpty(errors.note) && (
-                      <Typography fontSize={12} color="#ff0000" my="5px">
-                        {get(errors, "note.message", "")}
-                      </Typography>
-                    )}
-                  </Box>
-                )}
-              />
-            </Box>
-            <Box px="80px" display="flex" flexDirection="row" mt="20px">
-              <Boxcustom
-                Contents={`Phí ship`}
-                size={120}
-                justifyContent={"left"}
-              />
-              <Boxcustom
-                Contents={`30.000 đ`}
-                size={250}
-                justifyContent={"left"}
-              />
-            </Box>
-            <Box px="100px">
               <Typography
                 sx={{
                   fontWeight: 600,
                   fontSize: "36px",
                   color: "#DFA32E",
                   my: "18px",
+                  mx: "100px",
                 }}
               >
-                phương thức thanh toán
+                Thông tin vận chuyển
               </Typography>
-              <Controller
-                control={control}
-                name="typePay"
-                defaultValue={"COD"}
-                rules={{
-                  required: {
-                    value: true,
-                    message: "Phương thức thanh toán không được dể trống",
-                  },
-                }}
-                render={({ field }) => {
-                  return (
+            </Box>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Box>
+                <Grid container columns={12} px="80px">
+                  <Grid item xs={6} px="20px">
+                    <Controller
+                      control={control}
+                      rules={{
+                        required: {
+                          value: true,
+                          message: "Họ và tên không được bỏ trống",
+                        },
+                      }}
+                      name="fullName"
+                      render={({ field }) => (
+                        <Box>
+                          <InputLabel
+                            sx={{ color: "#015A94", mb: "5px" }}
+                            htmlFor="fullName"
+                          >
+                            Họ và tên
+                          </InputLabel>
+                          <OutlinedInput
+                            {...field}
+                            sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
+                            id="fullName"
+                            placeholder="Họ và tên"
+                            error={!isEmpty(errors.fullName)}
+                            autoComplete="off"
+                            className={classes.input}
+                            fullWidth
+                          />
+                          {!isEmpty(errors.fullName) && (
+                            <Typography fontSize={12} color="#ff0000" my="5px">
+                              {get(errors, "fullName.message", "")}
+                            </Typography>
+                          )}
+                        </Box>
+                      )}
+                    />
+                  </Grid>
+                  <Grid item xs={6} px="20px">
+                    <Controller
+                      control={control}
+                      rules={{
+                        required: {
+                          value: true,
+                          message: "Số điện thoại không được bỏ trống",
+                        },
+                      }}
+                      name="phoneNumber"
+                      render={({ field }) => (
+                        <Box>
+                          <InputLabel
+                            sx={{ color: "#015A94", mb: "5px" }}
+                            htmlFor="phoneNumber"
+                          >
+                            Số điện thoại
+                          </InputLabel>
+                          <OutlinedInput
+                            {...field}
+                            sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
+                            id="phoneNumber"
+                            placeholder="Số điện thoại"
+                            error={!isEmpty(errors.phoneNumber)}
+                            autoComplete="off"
+                            className={classes.input}
+                            fullWidth
+                          />
+                          {!isEmpty(errors.phoneNumber) && (
+                            <Typography fontSize={12} color="#ff0000" my="5px">
+                              {get(errors, "phoneNumber.message", "")}
+                            </Typography>
+                          )}
+                        </Box>
+                      )}
+                    />
+                  </Grid>
+                </Grid>
+              </Box>
+              <Box px="100px">
+                <Controller
+                  control={control}
+                  rules={{
+                    required: {
+                      value: true,
+                      message: "địa chir nhận hàng không được bỏ trống",
+                    },
+                  }}
+                  name="address"
+                  render={({ field }) => (
                     <Box>
                       <InputLabel
-                        id="status-select"
-                        sx={{ color: "#282828", fontSize: 14, mb: "5px" }}
+                        sx={{ color: "#015A94", mb: "5px" }}
+                        htmlFor="address"
                       >
-                        Phương thức thanh toán
-                        <span>
-                          (<span style={{ color: "#FF0000" }}>*</span>)
-                        </span>
+                        Địa chỉ nhận hàng
                       </InputLabel>
-                      <Select
+                      <OutlinedInput
                         {...field}
-                        labelId="status-select"
+                        sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
+                        id="address"
+                        placeholder="địa chỉ nhận hàng"
+                        error={!isEmpty(errors.address)}
+                        autoComplete="off"
+                        className={classes.input}
                         fullWidth
-                        sx={{ height: "40px", backgroundColor: "white" }}
-                      >
-                        {optionPay?.map((opt) => (
-                          <MuiMenuItem key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </MuiMenuItem>
-                        ))}
-                      </Select>
+                      />
+                      {!isEmpty(errors.address) && (
+                        <Typography fontSize={12} color="#ff0000" my="5px">
+                          {get(errors, "address.message", "")}
+                        </Typography>
+                      )}
                     </Box>
-                  );
-                }}
-              />
-            </Box>
-            <Box px="100px">
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: "32px",
-                  color: "#DFA32E",
-                  my: "18px",
-                }}
+                  )}
+                />
+              </Box>
+              <Box px="100px">
+                <Controller
+                  control={control}
+                  rules={{
+                    required: {
+                      value: false,
+                      message: "Ghi chú nhận hàng không được bỏ trống",
+                    },
+                  }}
+                  name="note"
+                  render={({ field }) => (
+                    <Box>
+                      <InputLabel
+                        sx={{ color: "#015A94", mb: "5px" }}
+                        htmlFor="note"
+                      >
+                        Ghi chú
+                      </InputLabel>
+                      <OutlinedInput
+                        {...field}
+                        sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
+                        id="note"
+                        placeholder="Ghi chú"
+                        error={!isEmpty(errors.note)}
+                        autoComplete="off"
+                        className={classes.input}
+                        fullWidth
+                      />
+                      {!isEmpty(errors.note) && (
+                        <Typography fontSize={12} color="#ff0000" my="5px">
+                          {get(errors, "note.message", "")}
+                        </Typography>
+                      )}
+                    </Box>
+                  )}
+                />
+              </Box>
+              <Box px="80px" display="flex" flexDirection="row" mt="20px">
+                <Boxcustom
+                  Contents={`Phí ship`}
+                  size={120}
+                  justifyContent={"left"}
+                />
+                <Boxcustom
+                  Contents={`30.000 đ`}
+                  size={250}
+                  justifyContent={"left"}
+                />
+              </Box>
+              <Box px="100px">
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    fontSize: "36px",
+                    color: "#DFA32E",
+                    my: "18px",
+                  }}
+                >
+                  Phương thức thanh toán
+                </Typography>
+                <Controller
+                  control={control}
+                  name="typePay"
+                  defaultValue={"COD"}
+                  rules={{
+                    required: {
+                      value: true,
+                      message: "Phương thức thanh toán không được dể trống",
+                    },
+                  }}
+                  render={({ field }) => {
+                    return (
+                      <Box>
+                        <InputLabel
+                          id="status-select"
+                          sx={{ color: "#282828", fontSize: 14, mb: "5px" }}
+                        >
+                          Phương thức thanh toán
+                          <span>
+                            (<span style={{ color: "#FF0000" }}>*</span>)
+                          </span>
+                        </InputLabel>
+                        <Select
+                          {...field}
+                          labelId="status-select"
+                          fullWidth
+                          sx={{ height: "40px", backgroundColor: "white" }}
+                        >
+                          {optionPay?.map((opt) => (
+                            <MuiMenuItem key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </MuiMenuItem>
+                          ))}
+                        </Select>
+                      </Box>
+                    );
+                  }}
+                />
+              </Box>
+              <Box px="100px">
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    fontSize: "32px",
+                    color: "#DFA32E",
+                    my: "18px",
+                  }}
+                >
+                  Voucher
+                </Typography>
+                <Radio.Group
+                  onChange={onSelectVoucher}
+                  style={radioGroupStyle}
+                  size="large"
+                >
+                  {listVoucher?.map((opt: any) => (
+                    <Radio.Button
+                      key={opt._id}
+                      style={radioStyle}
+                      value={opt._id}
+                    >
+                      <Typography sx={{ fontWeight: 600, fontSize: "14px" }}>
+                        {opt.name}
+                      </Typography>
+                    </Radio.Button>
+                  ))}
+                </Radio.Group>
+              </Box>
+              <Box px="100px">
+                <Typography
+                  sx={{
+                    fontWeight: 600,
+                    fontSize: "32px",
+                    color: "#000000",
+                    my: "18px",
+                  }}
+                >
+                  Tổng tiền cần thanh toán
+                </Typography>
+                <Boxcustom
+                  Contents={`${finalPrice.toLocaleString("de-DE")} đ`}
+                  size={250}
+                  justifyContent={"left"}
+                />
+              </Box>
+              <Box px="100px"></Box>
+              <Box
+                display="flex"
+                flexDirection="column"
+                justifyContent="center"
+                alignItems="center"
               >
-                Voucher
-              </Typography>
-              <Radio.Group
-                onChange={onSelectVoucher}
-                style={radioGroupStyle}
-                size="large"
-              >
-                {listVoucher?.map((opt: any) => (
-                  <Radio.Button
-                    key={opt._id}
-                    style={radioStyle}
-                    value={opt._id}
-                  >
-                    <Typography sx={{ fontWeight: 600, fontSize: "14px" }}>
-                      {opt.name}
-                    </Typography>
-                  </Radio.Button>
-                ))}
-              </Radio.Group>
-            </Box>
-            <Box px="100px">
-              <Typography
-                sx={{
-                  fontWeight: 600,
-                  fontSize: "32px",
-                  color: "#000000",
-                  my: "18px",
-                }}
-              >
-                Tổng tiền cần thanh toán
-              </Typography>
-              <Boxcustom
-                Contents={`${finalPrice.toLocaleString("de-DE")} đ`}
-                size={250}
-                justifyContent={"left"}
-              />
-            </Box>
-            <Box px="100px"></Box>
+                <LoadingButton
+                  type="submit"
+                  sx={{ backgroundColor: "#50C2C9", my: "28px" }}
+                  variant="contained"
+                  className={classes.btn}
+                >
+                  Đặt hàng
+                </LoadingButton>
+              </Box>
+            </form>
+          </Grid>
+          <Grid item xs={5} mt="80px">
             <Box
               display="flex"
               flexDirection="column"
-              justifyContent="center"
-              alignItems="center"
+              justifyContent="left"
+              alignItems="start"
             >
-              <LoadingButton
-                type="submit"
-                sx={{ backgroundColor: "#50C2C9", my: "28px" }}
-                variant="contained"
-                className={classes.btn}
+              <Typography
+                sx={{ fontWeight: 600, fontSize: "36px", color: "#DFA32E" }}
               >
-                Đặt hàng
-              </LoadingButton>
+                Thông tin giỏ hàng
+              </Typography>
             </Box>
-          </form>
+            <Table
+              rowSelection={rowSelection}
+              columns={columns}
+              pagination={{ pageSize: 3 }}
+              dataSource={dataCart}
+            />
+          </Grid>
         </Grid>
-        <Grid item xs={5} mt="80px">
-          <Box
-            display="flex"
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Typography
-              sx={{ fontWeight: 600, fontSize: "36px", color: "#DFA32E" }}
-            >
-              Thông tin giỏ hàng
-            </Typography>
-          </Box>
-          <Table
-            rowSelection={rowSelection}
-            columns={columns}
-            pagination={{ pageSize: 3 }}
-            dataSource={dataCart}
-          />
-        </Grid>
-      </Grid>
-    </Box>
+      </Box>
+    </div>
   );
 }
 

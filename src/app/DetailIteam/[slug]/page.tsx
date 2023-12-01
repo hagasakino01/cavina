@@ -31,7 +31,7 @@ function DetailIteam(props: any) {
   const [valueColor, setValueColor] = useState<any>("");
   const [favorite, setFavorite] = useState<boolean>(true);
   const [dataDetail, setDatadetail] = useState<any>({
-    images: [ImgItem],
+    images: [],
     sizes: ["S", "M", "L", "XL"],
     price: 0,
     colors: ["Red", "Blue"],
@@ -114,7 +114,7 @@ function DetailIteam(props: any) {
                 width="620"
                 height="620"
                 src={dataDetail.images[0]}
-                alt=""
+                alt="Ảnh Sp"
               />
             </Grid>
 

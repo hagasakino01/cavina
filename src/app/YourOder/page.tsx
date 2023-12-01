@@ -137,7 +137,9 @@ function YourOder() {
       key: "action",
       render: (_, record) => (
         <Space size="middle">
-          <a onClick={() => handleDel(record)}>Xem chi tiết</a>
+          <a className="underline" onClick={() => handleDel(record)}>
+            Xem chi tiết
+          </a>
         </Space>
       ),
     },

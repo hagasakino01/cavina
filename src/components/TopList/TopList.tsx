@@ -66,11 +66,24 @@ function TopList() {
             px: "64px",
             py: "12px",
             mt: "60px",
+            "&:hover": {
+              textDecoration: "underline",
+              color: "#50C2C9",
+              border: "2px solid #50C2C9",
+            },
           }}
           onClick={handleViewTopProduct}
         >
           <Typography
-            sx={{ fontWeight: 700, fontSize: "16px", color: "#000000" }}
+            sx={{
+              fontWeight: 700,
+              fontSize: "16px",
+              color: "#000000",
+              "&:hover": {
+                textDecoration: "underline",
+                color: "#50C2C9",
+              },
+            }}
           >
             Xem thêm
           </Typography>

@@ -125,6 +125,12 @@ function ModalUpdateUserInfo({ visible, onClose }: ModalUpdateUserInfoProps) {
               name="email"
               render={({ field }) => (
                 <Box>
+                  <InputLabel
+                    sx={{ color: "#50C2C9", mb: "5px" }}
+                    htmlFor="oldpassword"
+                  >
+                    Email
+                  </InputLabel>
                   <OutlinedInput
                     {...field}
                     sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
@@ -156,6 +162,12 @@ function ModalUpdateUserInfo({ visible, onClose }: ModalUpdateUserInfoProps) {
               name="fullName"
               render={({ field }) => (
                 <Box>
+                  <InputLabel
+                    sx={{ color: "#50C2C9", mb: "5px" }}
+                    htmlFor="oldpassword"
+                  >
+                    Họ và tên
+                  </InputLabel>
                   <OutlinedInput
                     {...field}
                     sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
@@ -187,6 +199,12 @@ function ModalUpdateUserInfo({ visible, onClose }: ModalUpdateUserInfoProps) {
               name="phoneNumber"
               render={({ field }) => (
                 <Box>
+                  <InputLabel
+                    sx={{ color: "#50C2C9", mb: "5px" }}
+                    htmlFor="oldpassword"
+                  >
+                    Số điện thoại
+                  </InputLabel>
                   <OutlinedInput
                     {...field}
                     sx={{ backgroundColor: "#E8E3E3", my: "10px" }}
@@ -218,6 +236,12 @@ function ModalUpdateUserInfo({ visible, onClose }: ModalUpdateUserInfoProps) {
               name="address"
               render={({ field }) => (
                 <Box>
+                  <InputLabel
+                    sx={{ color: "#50C2C9", mb: "5px" }}
+                    htmlFor="oldpassword"
+                  >
+                    Địa chỉ
+                  </InputLabel>
                   <OutlinedInput
                     {...field}
                     sx={{ backgroundColor: "#E8E3E3", my: "10px" }}

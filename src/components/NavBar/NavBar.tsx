@@ -17,16 +17,13 @@ import Link from "next/link";
 import Cookies from "js-cookie";
 import ProfileDropdown from "../ProfileDropdown/ProfileDropdown";
 import "../../app/style.css";
-function NavBar() {
+function NavBar(props: any) {
   const router = useRouter();
   const handleLogin = () => {
     router.push("/Login");
   };
   const storedToken = Cookies.get("accessToken");
 
-  useEffect(() => {
-    console.log(storedToken);
-  }, []);
   return (
     <Box>
       <Grid container columns={18} py="40px" px="100px" alignItems="center">
@@ -60,10 +57,14 @@ function NavBar() {
                 <Link href={"/"}>
                   <Typography
                     sx={{
-                      fontWeight: 500,
+                      fontWeight: 600,
                       marginBottom: "2px",
                       fontSize: "20px",
                       color: "#000000",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "#50C2C9",
+                      },
                     }}
                   >
                     TRANG CHỦ
@@ -74,10 +75,14 @@ function NavBar() {
                 <Link href={"/MenPage"}>
                   <Typography
                     sx={{
-                      fontWeight: 500,
+                      fontWeight: 600,
                       marginBottom: "2px",
                       fontSize: "20px",
                       color: "#000000",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "#50C2C9",
+                      },
                     }}
                   >
                     NAM
@@ -88,10 +93,14 @@ function NavBar() {
                 <Link href={"/WomenPage"}>
                   <Typography
                     sx={{
-                      fontWeight: 500,
+                      fontWeight: 600,
                       marginBottom: "2px",
                       fontSize: "20px",
                       color: "#000000",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "#50C2C9",
+                      },
                     }}
                   >
                     NỮ
@@ -102,10 +111,14 @@ function NavBar() {
                 <Link href={storedToken ? "/Cart" : "/Login"}>
                   <Typography
                     sx={{
-                      fontWeight: 500,
+                      fontWeight: 600,
                       marginBottom: "2px",
                       fontSize: "20px",
                       color: "#000000",
+                      "&:hover": {
+                        textDecoration: "underline",
+                        color: "#50C2C9",
+                      },
                     }}
                   >
                     GIỎ HÀNG
